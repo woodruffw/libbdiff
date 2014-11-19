@@ -33,10 +33,10 @@ For developing with `libbdiff`, see the [documenation](./docs/user_docs.md).
 Build commands for `libbdiff` should look something like this:
 
 ```bash
-$ gcc -Ipath/to/libbdiff.h file.c -o file -Lpath/to/libbdiff.a -lbdiff -lbz2
+$ gcc -Ipath/to/libbdiff.h file.c -o file -Lpath/to/libbdiff.a -lbdiff
 ```
 
-The `-I` and `-L` directives aren't required if `libbdiff.h` and `libbdiff.a` are installed to the system header and library directories properly.
+The `-I` and `-L` directives aren't required if `libbdiff.h` and `libbdiff.a` are installed to system header and library directories.
 
 ## License
 
