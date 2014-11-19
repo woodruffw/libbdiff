@@ -17,6 +17,7 @@ all: $(OBJS)
 tests: all
 	gcc ./src/tests/hw1.c -o ./hw1
 	gcc ./src/tests/hw2.c -o ./hw2
+	mkdir -p bin
 	gcc ./src/tests/bdiff_test.c -L. -lbdiff -lbz2 -o ./bin/bdiff_test
 	gcc ./src/tests/bpatch_test.c -L. -lbdiff -lbz2 -o ./bin/bpatch_test
 	./bin/bdiff_test
