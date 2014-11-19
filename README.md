@@ -22,6 +22,7 @@ Just do the following:
 $ git clone https://github.com/woodruffw/libbdiff.git
 $ cd libbdiff
 $ make
+$ sudo make install # installs libbdiff.a and the headers to PREFIX
 ```
 
 This will leave `libbdiff.a`, a static library, in the repository root.
