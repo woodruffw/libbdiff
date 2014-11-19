@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -O3 -std=gnu89
+CFLAGS = -Wall -O3 -std=c99
 CFLAGS += -Wno-attributes -Wno-maybe-uninitialized
-CPPFLAGS = -D_FILE_OFFSET_BITS=64
+CPPFLAGS = -D_FILE_OFFSET_BITS=64 -D_POSIX_C_SOURCE=200112L
 LDFLAGS = -lbz2
 
 SOURCES = $(wildcard ./src/*.c)

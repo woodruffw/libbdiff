@@ -28,11 +28,9 @@ This will leave `libbdiff.a`, a static library, in the repository root.
 
 ## Use and linking
 
-For external functions and error codes, see the [documenation](./docs/external_docs.md).
+For developing with `libbdiff`, see the [documenation](./docs/user_docs.md).
 
-For `libbdiff`'s internal functions, see the [internal documentation](./docs/intern_docs.md).
-
-Build commands for libbdiff should look something like this:
+Build commands for `libbdiff` should look something like this:
 
 ```bash
 $ gcc -Ipath/to/libbdiff.h file.c -o file -Lpath/to/libbdiff.a -lbdiff -lbz2
