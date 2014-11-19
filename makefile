@@ -16,7 +16,7 @@ all: $(OBJS)
 	mv ./*.o libbz2
 	ar -cq $(LIBNAME) $(OBJS) ./libbz2/*.o
 
-install: all
+install:
 	install -c $(LIBNAME) $(PREFIX)/lib/
 	install -c $(HEADERS) $(PREFIX)/include/
 
@@ -45,4 +45,3 @@ clean:
 	rm -f $(LIBNAME)
 	rm -f ./bin/*
 	rm -rf ./libbz2
-	
