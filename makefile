@@ -4,14 +4,25 @@ CFLAGS += -Wno-attributes -Wno-maybe-uninitialized
 CPPFLAGS = -D_FILE_OFFSET_BITS=64 -D_POSIX_C_SOURCE=200112L
 
 SOURCES = $(wildcard ./src/*.c)
+HEADERS = ./src/libbdiff.h ./src/libbdiff_status.h
 OBJS = $(SOURCES:.c=.o)
-LIBNAME = libbdiff
+LIBNAME = libbdiff.a
+
+PREFIX = /usr
 
 all: $(OBJS)
 	mkdir -p libbz2
 	ar -x $(shell find /lib /usr/lib /usr/local/lib -name libbz2.a 2> /dev/null)
 	mv ./*.o libbz2
-	ar -cq $(LIBNAME).a $(OBJS) ./libbz2/*.o
+	ar -cq $(LIBNAME) $(OBJS) ./libbz2/*.o
+
+install: all
+	install -c $(LIBNAME) $(PREFIX)/lib/
+	install -c $(HEADERS) $(PREFIX)/include/
+
+uninstall:
+	rm -f $(PREFIX)/lib/$(LIBNAME)
+	rm -f $(PREFIX)/include/libbdiff.h $(PREFIX)/include/libbdiff_status.h
 
 .c.o:
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@ $(LDFLAGS)
@@ -31,6 +42,7 @@ tests: all
 
 clean:
 	rm -f $(OBJS)
-	rm -f $(LIBNAME).a
+	rm -f $(LIBNAME)
 	rm -f ./bin/*
 	rm -rf ./libbz2
+	
